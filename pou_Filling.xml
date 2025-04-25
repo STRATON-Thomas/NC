@@ -3,6 +3,7 @@
    <programs>
       <pou name="Filling" kind="program" period="1" phase="0" lge="ST" desc="emulates the process">
          <vargroup name="Filling" kind="LOCAL">
+            <var name="bVar" type="BOOL"/>
          </vargroup>
 <defines name="Filling"></defines>
          <sourceSTIL>if GiveTea and GlassLevelTea &lt; 100 and GlassLevelCoffee &lt; 100
@@ -36,7 +37,7 @@ if AskForGlass and not ResetGlass and PosGlass &lt; 50 then
    GlassHere := (PosGlass &gt;= 50);
 end_if;
 
-
+bVar := true;
 
          </sourceSTIL>
       </pou>
