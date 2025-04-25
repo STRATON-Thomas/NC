@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<K5project version="1.1">
+   <programs>
+      <pou name="testfbd" kind="program" period="1" phase="0" lge="FBD">
+         <vargroup name="testfbd" kind="LOCAL">
+            <var name="tt" type="DINT"/>
+         </vargroup>
+<defines name="testfbd"></defines>
+         <sourceFBD sxcell="16" sycell="16">
+            <FBDbox id="1" order="0" dx="13" dy="2" sx="4" sy="3" nbi="2" nbo="1" style="0" kind="OP" type="+"/>
+            <FBDvarbox id="2" order="0" dx="4" dy="3" sx="8" sy="1" symbol="10" style="0"/>
+            <FBDvarbox id="4" order="0" dx="18" dy="3" sx="8" sy="1" symbol="tt" style="0"/>
+            <FBDvarbox id="3" order="0" dx="4" dy="4" sx="8" sy="1" symbol="58" style="0"/>
+            <FBDline negate="0" idfrom="1" idto="4" pinfrom="0" pinto="0" cutx="50" cuty="50">
+               <FBDlinepoint xcell="17" ycell="3" xincell="0" yincell="8"/>
+               <FBDlinepoint xcell="17" ycell="3" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="17" ycell="3" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="18" ycell="3" xincell="1" yincell="8"/>
+            </FBDline>
+            <FBDline negate="0" idfrom="2" idto="1" pinfrom="0" pinto="0" cutx="50" cuty="50">
+               <FBDlinepoint xcell="12" ycell="3" xincell="0" yincell="8"/>
+               <FBDlinepoint xcell="12" ycell="3" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="12" ycell="3" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="13" ycell="3" xincell="1" yincell="8"/>
+            </FBDline>
+            <FBDline negate="0" idfrom="3" idto="1" pinfrom="0" pinto="1" cutx="50" cuty="50">
+               <FBDlinepoint xcell="12" ycell="4" xincell="0" yincell="8"/>
+               <FBDlinepoint xcell="12" ycell="4" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="12" ycell="4" xincell="7" yincell="8"/>
+               <FBDlinepoint xcell="13" ycell="4" xincell="1" yincell="8"/>
+            </FBDline>
+         </sourceFBD>
+      </pou>
+   </programs>
+</K5project>
