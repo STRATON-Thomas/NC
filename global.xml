@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<K5project version="1.1">
+   <variables>
+      <vargroup name="(Global)" kind="GLOBAL">
+         <var name="GlassLevelCoffee" type="DINT">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="GiveTea" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Commands"/>
+         </var>
+         <var name="ResetGlass" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="PushBut_Coin" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Buttons"/>
+         </var>
+         <var name="GlassHere" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="AskForGlass" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="PushBut_TakeCoffee" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Buttons"/>
+         </var>
+         <var name="CoffeeCount" type="DINT">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="PosGlass" type="DINT">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="AlarmEmpty" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="PushBut_Tea" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Buttons"/>
+         </var>
+         <var name="PushBut_Expresso" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Buttons"/>
+         </var>
+         <var name="PushBut_Long" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Buttons"/>
+         </var>
+         <var name="GiveExpresso" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Commands"/>
+         </var>
+         <var name="GiveLong" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Commands"/>
+         </var>
+         <var name="GlassLevelTea" type="DINT">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         </var>
+         <var name="screen" type="STRING" len="255">
+         <varinfo type="subgroup" data="Strings"/>
+         </var>
+         <var name="LastCoffee" type="STRING" len="255">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+         <varinfo type="subgroup" data="Strings"/>
+         </var>
+      </vargroup>
+      <vargroup name="(Retain)" kind="RETAIN">
+      </vargroup>
+   </variables>
+</K5project>

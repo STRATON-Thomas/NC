@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<K5project version="1.1">
+   <programs>
+      <pou name="Filling" kind="program" period="1" phase="0" lge="ST" desc="emulates the process">
+         <vargroup name="Filling" kind="LOCAL">
+         </vargroup>
+<defines name="Filling"></defines>
+         <sourceSTIL>if GiveTea and GlassLevelTea &lt; 100 and GlassLevelCoffee &lt; 100
+then
+   GlassLevelTea := GlassLevelTea + 1;
+end_if;
+
+
+if GiveExpresso and GlassLevelTea &lt; 100 and GlassLevelCoffee &lt; 100
+then
+   GlassLevelCoffee := GlassLevelCoffee + 1;
+end_if;
+
+
+if GiveLong and GlassLevelTea &lt; 100 and GlassLevelCoffee &lt; 100
+then
+   GlassLevelCoffee := GlassLevelCoffee + 1;
+end_if;
+
+
+if ResetGlass then
+   GlassLevelTea := 0;
+   GlassLevelCoffee := 0;
+   GlassHere := FALSE;
+   ResetGlass := FALSE;
+   PosGlass := 0;
+end_if;
+
+if AskForGlass and not ResetGlass and PosGlass &lt; 50 then
+   PosGlass := PosGlass + 1;
+   GlassHere := (PosGlass &gt;= 50);
+end_if;
+
+
+
+         </sourceSTIL>
+      </pou>
+   </programs>
+</K5project>

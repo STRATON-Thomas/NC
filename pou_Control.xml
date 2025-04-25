@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<K5project version="1.1">
+   <programs>
+      <pou name="Control" kind="program" period="1" phase="0" lge="SFC" desc="controls the machine running">
+         <vargroup name="Control" kind="LOCAL">
+            <var name="IsActiveGS1" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+            </var>
+            <var name="IsActiveGS2" type="BOOL">
+         <varinfo type="embed" data="&lt;syb&gt;"/>
+            </var>
+            <var name="IsActiveGS5" type="BOOL"/>
+         </vargroup>
+<defines name="Control"></defines>
+         <sourceSFC sx="3" sy="13">
+            <SFCstep kind="init" dx="0" dy="0" ref="1" name="GS1" next="GT1">
+               <SFCnote ref="1" dx="0" dy="0">Wait for coin
+               </SFCnote>
+               <SFCaction kind="default">
+                  <sourceSTIL>ResetGlass (S);
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Insert coin&apos;;
+IsActiveGS1 := TRUE;
+// This variable is not mandatory, for example in the graphics you can put &apos;Control/GS1&apos; in the variabls symbol. But if it is used in the Dataserver, for example, &apos;Control/GS1&apos; does not exist in the dictionnary so cannot be embedded
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Long := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>IsActiveGS1 := FALSE;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCtrans dx="0" dy="1" ref="1" name="GT1" next="GS2">
+               <SFCnote ref="1" dx="0" dy="1">coin
+               </SFCnote>
+               <SFCcondition>
+                  <sourceSTIL>PushBut_Coin
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCstep kind="default" dx="0" dy="2" ref="2" name="GS2" next="GT2, GT101, GT201">
+               <SFCnote ref="2" dx="0" dy="2">select
+product
+               </SFCnote>
+               <SFCaction kind="default">
+                  <sourceSTIL>
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Select&apos;;
+IsActiveGS2 := TRUE;
+// This variable is not mandatory, for example in the graphics you can put &apos;Control/GS2&apos; in the variabls symbol. But if it is used in the Dataserver, for example, &apos;Control/GS2&apos; does not exist in the dictionnary so cannot be embedded
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>IsActiveGS2 := FALSE;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFClines dx="0" dy="3" vtop="1" vbottom="1" hleft="1" hright="1" dbline="0" cross="1"/>
+            <SFClines dx="1" dy="3" vtop="0" vbottom="1" hleft="1" hright="1" dbline="0" cross="1"/>
+            <SFClines dx="2" dy="3" vtop="0" vbottom="1" hleft="1" hright="0" dbline="0" cross="1"/>
+            <SFCtrans dx="0" dy="4" ref="2" name="GT2" next="GS3">
+               <SFCcondition>
+                  <sourceSTIL>PushBut_Tea
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="1" dy="4" ref="101" name="GT101" next="GS101">
+               <SFCcondition>
+                  <sourceSTIL>PushBut_Expresso
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="2" dy="4" ref="201" name="GT201" next="GS201">
+               <SFCcondition>
+                  <sourceSTIL>PushBut_Long
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCstep kind="default" dx="0" dy="5" ref="3" name="GS3" next="GT3">
+               <SFCaction kind="default">
+                  <sourceSTIL>AskForGlass;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Tea&apos;;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Long := FALSE ;
+
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCstep kind="default" dx="1" dy="5" ref="101" name="GS101" next="GT102">
+               <SFCaction kind="default">
+                  <sourceSTIL>AskForGlass;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Expresso&apos;;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Long := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCstep kind="default" dx="2" dy="5" ref="201" name="GS201" next="GT202">
+               <SFCaction kind="default">
+                  <sourceSTIL>AskForGlass;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Long&apos;;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCtrans dx="0" dy="6" ref="3" name="GT3" next="GS4">
+               <SFCcondition>
+                  <sourceSTIL>GlassHere
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="1" dy="6" ref="102" name="GT102" next="GS102">
+               <SFCcondition>
+                  <sourceSTIL>GlassHere
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="2" dy="6" ref="202" name="GT202" next="GS202">
+               <SFCcondition>
+                  <sourceSTIL>GlassHere
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCstep kind="default" dx="0" dy="7" ref="4" name="GS4" next="GT4">
+               <SFCaction kind="default">
+                  <sourceSTIL>GiveTea;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Long := FALSE ;
+
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>LastCoffee := &apos;Tea&apos;;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCstep kind="default" dx="1" dy="7" ref="102" name="GS102" next="GT103">
+               <SFCaction kind="default">
+                  <sourceSTIL>GiveExpresso;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Long := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>LastCoffee := &apos;Expresso&apos;;
+PushBut_Expresso := False;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCstep kind="default" dx="2" dy="7" ref="202" name="GS202" next="GT203">
+               <SFCaction kind="default">
+                  <sourceSTIL>GiveLong;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>LastCoffee := &apos;Long&apos;;
+PushBut_Long := False;
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCtrans dx="0" dy="8" ref="4" name="GT4" next="GS5">
+               <SFCcondition>
+                  <sourceSTIL>GlassLevelTea &gt;= 100;
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="1" dy="8" ref="103" name="GT103" next="GS5">
+               <SFCcondition>
+                  <sourceSTIL>GlassLevelCoffee &gt;= 20;
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCtrans dx="2" dy="8" ref="203" name="GT203" next="GS5">
+               <SFCcondition>
+                  <sourceSTIL>GlassLevelCoffee &gt;= 80;
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFClines dx="0" dy="9" vtop="1" vbottom="1" hleft="1" hright="1" dbline="0" cross="1"/>
+            <SFClines dx="1" dy="9" vtop="1" vbottom="0" hleft="1" hright="1" dbline="0" cross="1"/>
+            <SFClines dx="2" dy="9" vtop="1" vbottom="0" hleft="1" hright="0" dbline="0" cross="1"/>
+            <SFCstep kind="default" dx="0" dy="10" ref="5" name="GS5" next="GT5">
+               <SFCnote ref="5" dx="0" dy="10">ask for
+remove glass
+               </SFCnote>
+               <SFCaction kind="default">
+                  <sourceSTIL>
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P1">
+                  <sourceSTIL>screen := &apos;Take your glass&apos;;
+CoffeeCount := CoffeeCount + 1;
+IsActiveGS5 := TRUE;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="N">
+                  <sourceSTIL>PushBut_Expresso := FALSE ;
+PushBut_Long := FALSE ;
+PushBut_Tea := False;
+                  </sourceSTIL>
+               </SFCaction>
+               <SFCaction kind="P0">
+                  <sourceSTIL>IsActiveGS5 := FALSE;
+
+                  </sourceSTIL>
+               </SFCaction>
+            </SFCstep>
+            <SFCtrans dx="0" dy="11" ref="5" name="GT5" next="GS1">
+               <SFCnote ref="5" dx="0" dy="11">done
+
+               </SFCnote>
+               <SFCcondition>
+                  <sourceSTIL>PushBut_TakeCoffee
+                  </sourceSTIL>
+               </SFCcondition>
+            </SFCtrans>
+            <SFCjump dx="0" dy="12" ref="1" target="GS1"/>
+         </sourceSFC>
+      </pou>
+   </programs>
+</K5project>
